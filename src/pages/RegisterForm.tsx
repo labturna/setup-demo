@@ -1,11 +1,11 @@
 import React from "react";
-import { Button, Checkbox, Form, Grid, Input, Typography, Divider } from "antd";
-import { LockOutlined, MailOutlined } from "@ant-design/icons";
+import { Button, Form, Grid, Input, Typography, Divider } from "antd";
+import { UserOutlined, LockOutlined, MailOutlined } from "@ant-design/icons";
 
 const { useBreakpoint } = Grid;
 const { Text, Title, Link } = Typography;
 
-export default function LoginForm() {
+export default function RegisterForm() {
   const screens = useBreakpoint();
 
   const onFinish = (values: any) => {
@@ -44,15 +44,14 @@ export default function LoginForm() {
     <section style={styles.section}>
       <div style={styles.container}>
         <div style={styles.header}>
-          <Title style={styles.title}>Sign in</Title>
+          <Title style={styles.title}>Sign up</Title>
           <Text style={styles.text}>
-            Welcome back to ShareME! Please enter your details below to
-            sign in.
+            Create your account to start sharing!
           </Text>
         </div>
         <Divider />
         <Form
-          name="normal_login"
+          name="normal_register"
           initialValues={{
             remember: true,
           }}
@@ -60,6 +59,17 @@ export default function LoginForm() {
           layout="vertical"
           requiredMark="optional"
         >
+          <Form.Item
+            name="username"
+            rules={[
+              {
+                required: true,
+                message: "Please input your Username!",
+              },
+            ]}
+          >
+            <Input prefix={<UserOutlined />} placeholder="Username" />
+          </Form.Item>
           <Form.Item
             name="email"
             rules={[
@@ -87,21 +97,37 @@ export default function LoginForm() {
               placeholder="Password"
             />
           </Form.Item>
-          <Form.Item>
-            <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-            <a href="">
-              Forgot password?
-            </a>
+          <Form.Item
+            name="confirmPassword"
+            dependencies={['password']}
+            rules={[
+              {
+                required: true,
+                message: 'Please confirm your password!',
+              },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (!value || getFieldValue('password') === value) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                },
+              }),
+            ]}
+          >
+            <Input.Password
+              prefix={<LockOutlined />}
+              type="password"
+              placeholder="Confirm Password"
+            />
           </Form.Item>
-          <Form.Item style={{ marginBottom: "0" }}>
+          <Form.Item>
             <Button block type="primary" htmlType="submit">
-              Log in
+              Register
             </Button>
             <div style={styles.footer}>
-              <Text style={styles.text}>Don't have an account?</Text>{" "}
-              <Link href="/register">Sign up now</Link>
+              <Text style={styles.text}>Already have an account?</Text>{" "}
+              <Link href="/">Sign in</Link>
             </div>
           </Form.Item>
         </Form>

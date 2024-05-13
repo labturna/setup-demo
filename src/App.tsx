@@ -1,13 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginForm from './pages/LoginForm'
 import './App.css';
+import RegisterForm from './pages/RegisterForm';
 
 function App() {
   return (
-    <div className="App">
-      <LoginForm />
-    </div>  
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<LoginForm/>}/>
+        <Route path='/register' element={<RegisterForm/>}/>
+      </Routes>
+    </BrowserRouter> 
   );
 }
 
