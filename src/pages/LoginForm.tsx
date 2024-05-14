@@ -1,9 +1,9 @@
 import React from "react";
 import { Button, Checkbox, Form, Grid, Input, Typography, Divider } from "antd";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
-
+import { Link } from "react-router-dom";
 const { useBreakpoint } = Grid;
-const { Text, Title, Link } = Typography;
+const { Text, Title } = Typography;
 
 export default function LoginForm() {
   const screens = useBreakpoint();
@@ -91,9 +91,7 @@ export default function LoginForm() {
             <Form.Item name="remember" valuePropName="checked" noStyle>
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
-            <a href="">
-              Forgot password?
-            </a>
+            <Link to={"#"}>Forgot password?</Link>
           </Form.Item>
           <Form.Item style={{ marginBottom: "0" }}>
             <Button block type="primary" htmlType="submit">
@@ -101,7 +99,7 @@ export default function LoginForm() {
             </Button>
             <div style={styles.footer}>
               <Text style={styles.text}>Don't have an account?</Text>{" "}
-              <Link href="/register">Sign up now</Link>
+              <Link to="/register">Sign up now</Link>
             </div>
           </Form.Item>
         </Form>
