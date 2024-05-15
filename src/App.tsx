@@ -6,7 +6,6 @@ import "./App.css"
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import MainContent from "./components/MainContent";
 import SideContent from "./components/SideContent";
-import CardGallery from "./components/SetupList";
 
 const { Sider, Header, Content } = Layout
 const App = () => {
@@ -28,9 +27,6 @@ const App = () => {
           <SideContent />
         </Flex>
         <Divider />
-        <Flex gap="large">
-          <CardGallery />
-        </Flex>
       </Content>
     </Layout>
   </Layout>

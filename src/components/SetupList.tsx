@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HeartTwoTone, MoneyCollectOutlined } from '@ant-design/icons';
-import { Avatar, Card, Space } from 'antd';
+import { Avatar, Card, Space, Image, Flex, Typography, Button, Pagination } from 'antd';
+import RecentActivities from './RecentActivities';
 
 const { Meta } = Card;
 const imageSources = [
@@ -16,34 +17,59 @@ const getRandomImageSource = () => {
     const randomIndex = Math.floor(Math.random() * imageSources.length);
     return imageSources[randomIndex];
 };
-const CardGallery: React.FC = () => (
-    <Space size={[25, 16]} wrap>
-        {new Array(20).fill(null).map((_, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <Card
-                hoverable
-                style={{ width: 260 }}
-                cover={
-                    <img
-                        alt="example"
-                        src={getRandomImageSource()}
-                        style={{ objectFit: 'cover', width: '100%', height: 200 }}
-                    />
-                }
-                actions={[
-                    <HeartTwoTone twoToneColor="#eb2f96" key="Like" />,
-                    <MoneyCollectOutlined twoToneColor="#eb2f96" key="Donate" />,
-                ]}
-            >
-                <Meta
-                    avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />}
-                    title="user4901"
-                    description="0x8082**412"
-                />
-            </Card>
-        ))}
+const pageSize = 8; // Sayfa başına kart sayısı
+const CardGallery: React.FC = () => {
+    const [currentPage, setCurrentPage] = useState(1);
 
-    </Space>
-);
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+    };
+
+    const startIdx = (currentPage - 1) * pageSize;
+    const endIdx = startIdx + pageSize;
+
+    return (
+        <>
+            <Flex align='center' justify='space-between'>
+                <Typography.Title level={5} className='primary--color'>
+                    Latest Setups
+                </Typography.Title>
+                <Button className='gray--color'>View All</Button>
+            </Flex>
+            <Flex align='flex-start' justify='space-between' gap="large">
+                <Space size={[32, 15]} wrap>
+                    {new Array(20).fill(null).slice(startIdx, endIdx).map((_, index) => (
+                        <Card
+                            key={index}
+                            hoverable
+                            style={{ width: 290 }}
+                            cover={<Image alt="example"
+                                src={getRandomImageSource()}
+                                style={{ objectFit: 'cover', width: '100%', height: 200 }}>
+
+                            </Image>}
+                            actions={[
+                                <HeartTwoTone twoToneColor="#eb2f96" key="Like" />,
+                                <MoneyCollectOutlined twoToneColor="#eb2f96" key="Donate" />,
+                            ]}
+                        >
+                            <Meta
+                                avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />}
+                                title="user4901"
+                                description="0x8082**412" />
+                        </Card>
+                    ))}
+                </Space>
+            </Flex>
+            <Pagination
+                style={{ marginTop: '20px', textAlign: 'center' }}
+                defaultCurrent={1}
+                pageSize={pageSize}
+                total={20} // Toplam kart sayısı
+                onChange={handlePageChange}
+            />
+        </>
+    );
+};
 
 export default CardGallery;
