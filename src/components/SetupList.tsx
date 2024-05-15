@@ -31,10 +31,10 @@ const CardGallery: React.FC = () => {
     return (
         <>
             <Flex align='center' justify='space-between'>
-                <Typography.Title level={5} className='primary--color'>
+                <Typography.Title level={4} className='primary--color'>
                     Latest Setups
                 </Typography.Title>
-                <Button className='gray--color'>View All</Button>
+                <Button type="link" className="gray--color">View All</Button>
             </Flex>
             <Flex align='flex-start' justify='space-between' gap="large">
                 <Space size={[32, 15]} wrap>
