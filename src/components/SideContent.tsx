@@ -16,7 +16,6 @@ function SideContent() {
                 </Flex>
                 <BilibiliOutlined style={{position: "absolute", bottom: 30, alignItems: "center" }} />
             </Card>
-            
         </Flex>
     );
 };
