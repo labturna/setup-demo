@@ -1,7 +1,5 @@
-import { BilibiliOutlined } from "@ant-design/icons";
-import { Flex, Card, Typography, Image } from "antd";
+import { Flex, Card, Typography } from "antd";
 import React from "react";
-import RecentActivities from "./RecentActivities";
 
 function SideContent() {
     return (

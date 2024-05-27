@@ -42,7 +42,7 @@ function RecentActivities() {
                     description="Sent a gift">
                     </List.Item.Meta>
                     <span className="gray--color">
-                        {user.sendTime} {user.sendTime == 1 ? 'day ago' : 'days ago'}
+                        {user.sendTime} {user.sendTime === 1 ? 'day ago' : 'days ago'}
                     </span>
                 </List.Item>
             )} />

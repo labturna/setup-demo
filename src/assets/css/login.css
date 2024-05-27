@@ -1,0 +1,63 @@
+/* src/components/Login.css */
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../img/3607424.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .login-card {
+    background: rgba(216, 20, 197, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(212, 26, 231, 0.3);
+  }
+  
+  .login-header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-family: 'Arial, sans-serif';
+    background: -webkit-linear-gradient(pink, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .ant-form-item-label label {
+    font-size: 16px;
+    font-family: 'Arial, sans-serif';
+    background: -webkit-linear-gradient(pink, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .ant-input,
+  .ant-input-password,
+  .ant-checkbox-wrapper,
+  .ant-btn {
+    font-family: 'Arial, sans-serif';
+  }
+  
+  .ant-btn-primary {
+    background: linear-gradient(to right, pink, blue);
+    border: none;
+  }
+  
+  .ant-checkbox + span {
+    font-family: 'Arial, sans-serif';
+    background: -webkit-linear-gradient(pink, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .login-footer a {
+    font-family: 'Arial, sans-serif';
+    background: -webkit-linear-gradient(pink, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
