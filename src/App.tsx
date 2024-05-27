@@ -5,7 +5,7 @@ import CustomHeader from "./components/Header"
 import "./App.css"
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import MainContent from "./components/MainContent";
-import SideContent from "./components/SideContent";
+import RightSideContent from "./components/RightSideContent";
 
 const { Sider, Header, Content } = Layout
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
       <Content className="content">
         <Flex gap="large" className="space-between">
           <MainContent />
-          <SideContent />
+          <RightSideContent />
         </Flex>
         <Divider />
       </Content>
