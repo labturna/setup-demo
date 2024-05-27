@@ -23,8 +23,10 @@ const info = () => {
         <div>
           <InputNumber placeholder="Cost" />
           <Divider />
-          <Input placeholder="From" className='margin-bottom'/>
-          <Input placeholder="To" />
+          <Space direction='vertical' size="middle">
+          <Input placeholder="From" disabled/>
+          <Input placeholder="To" disabled/>
+          </Space>
         </div>
       ),
       onOk() {},
