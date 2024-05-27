@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { HeartTwoTone, MoneyCollectOutlined } from '@ant-design/icons';
-import { Avatar, Card, Space, Image, Flex, Typography, Button, Pagination } from 'antd';
-import RecentActivities from './RecentActivities';
+import { Avatar, Card, Space, Image, Flex, Typography, Button, Pagination, Modal, InputNumber, Input, Divider } from 'antd';
 
 const { Meta } = Card;
 const imageSources = [
@@ -17,7 +16,21 @@ const getRandomImageSource = () => {
     const randomIndex = Math.floor(Math.random() * imageSources.length);
     return imageSources[randomIndex];
 };
-const pageSize = 8; // Sayfa başına kart sayısı
+const info = () => {
+    Modal.info({
+      title: 'Donate 😃',
+      content: (
+        <div>
+          <InputNumber placeholder="Cost" />
+          <Divider />
+          <Input placeholder="From" className='margin-bottom'/>
+          <Input placeholder="To" />
+        </div>
+      ),
+      onOk() {},
+    });
+  };
+const pageSize = 8;
 const CardGallery: React.FC = () => {
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -50,7 +63,7 @@ const CardGallery: React.FC = () => {
                             </Image>}
                             actions={[
                                 <HeartTwoTone twoToneColor="#eb2f96" key="Like" />,
-                                <MoneyCollectOutlined twoToneColor="#eb2f96" key="Donate" />,
+                                <MoneyCollectOutlined onClick={info} twoToneColor="#eb2f96" key="Donate" />,
                             ]}
                         >
                             <Meta
@@ -65,7 +78,7 @@ const CardGallery: React.FC = () => {
                 style={{ marginTop: '20px', textAlign: 'center' }}
                 defaultCurrent={1}
                 pageSize={pageSize}
-                total={20} // Toplam kart sayısı
+                total={20}
                 onChange={handlePageChange}
             />
         </>
