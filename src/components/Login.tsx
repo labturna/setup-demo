@@ -1,6 +1,6 @@
 // src/components/Login.js
 import React from 'react';
-import { Button, Card, Checkbox, Divider, Flex, Form, Input, Space } from 'antd';
+import { Button, Card, Checkbox, Divider, Form, Input, Space } from 'antd';
 import { Link } from 'react-router-dom';
 import '../assets/css/login.css';
 
@@ -40,10 +40,10 @@ const Login = () => {
                     <Form.Item>
                         <Space style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <Form.Item name="remember" valuePropName="checked" noStyle>
-                                <Checkbox>Remember me</Checkbox>
+                                <Checkbox style={{ color: '#f0ffff' }}>Remember me</Checkbox>
                             </Form.Item>
-                            <div className="login-footer">
-                                <Link to="/register">Register</Link>
+                            <div>
+                                <Link to="/register" style={{ color: '#f0ffff' }}>Register</Link>
                             </div>
                         </Space>
                     </Form.Item>
@@ -53,7 +53,7 @@ const Login = () => {
                         </Button>
                     </Form.Item>
 
-                    <Divider>Or</Divider>
+                    <Divider style={{ color:'azure', borderEndEndRadius: 'azure' }}> OR </Divider>
 
                     <Form.Item>
                         <Button type="default" htmlType="button" block>
