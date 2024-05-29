@@ -8,6 +8,7 @@ import MainContent from "./components/MainContent";
 import RightSideContent from "./components/RightSideContent";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
+import Register from "./components/Register";
 
 const { Sider, Header, Content } = Layout;
 
@@ -18,6 +19,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/" element={
           <Layout>
             <Sider theme="light" trigger={null} collapsible collapsed={collapsed} className="sider">
