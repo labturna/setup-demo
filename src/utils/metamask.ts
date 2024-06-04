@@ -14,11 +14,11 @@ export const connectWallet = async (): Promise<string | null> => {
 
             return account;
         } catch (error) {
-            console.error('Cüzdan bağlama hatası:', error);
+            console.error('Connection error:', error);
             return null;
         }
     } else {
-        alert('MetaMask bulunamadı! Lütfen MetaMask eklentisini yükleyin.');
+        alert('MetaMask not found.');
         return null;
     }
 };

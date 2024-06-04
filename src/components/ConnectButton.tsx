@@ -30,7 +30,7 @@ const ConnectButton: React.FC = () => {
         setConnected(false);
     };
 
-    const displayText = connected ? (account ? `${account.slice(0, 5)}...` : 'Hesap Yok') : 'Cüzdan Bağla';
+    const displayText = connected ? (account ? `${account.slice(0, 5)}...` : 'Wallet cannot find') : 'Connect Wallet';
     const icon = connected ? <LogoutOutlined /> : <UserOutlined />;
     const handleClick = connected ? handleLogout : handleConnect;
 
@@ -40,6 +40,7 @@ const ConnectButton: React.FC = () => {
             size="large"
             icon={icon}
             onClick={handleClick}
+            style={{ background: 'linear-gradient(135deg, #536485, #04BEFE)', border: 'none' }}
         >
             {displayText}
         </Button>
