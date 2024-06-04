@@ -1,6 +1,7 @@
 import { Button, Card, ConfigProvider, Flex, Typography } from "antd";
 import React from "react";
 import ShareModal from "./ShareModal";
+import ConnectButton from "./ConnectButton";
 import { TinyColor } from '@ctrl/tinycolor';
 const colors1 = ['#536485', '#04BEFE'];
 
@@ -19,20 +20,6 @@ function Banner() {
                     </Typography.Text>
                 </Flex>
                 <Flex gap="small">
-                    <ConfigProvider
-                        theme={{
-                            components: {
-                                Button: {
-                                    colorPrimary: `linear-gradient(135deg, ${colors1.join(', ')})`,
-                                    colorPrimaryHover: `linear-gradient(135deg, ${getHoverColors(colors1).join(', ')})`,
-                                    colorPrimaryActive: `linear-gradient(135deg, ${getActiveColors(colors1).join(', ')})`,
-                                    lineWidth: 0,
-                                },
-                            },
-                        }}
-                    >
-                        <ShareModal />
-                    </ConfigProvider>
                     <Button size="large">Top Earners</Button>
                 </Flex>
             </Flex>
