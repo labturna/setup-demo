@@ -1,8 +1,9 @@
 import { MessageOutlined, NotificationOutlined, UserOutlined } from "@ant-design/icons";
-import { Avatar, Flex, Breadcrumb, Button, ConfigProvider, Space } from "antd";
+import { Avatar, Flex, Breadcrumb, ConfigProvider } from "antd";
 import Search from "antd/es/input/Search";
 import { TinyColor } from '@ctrl/tinycolor';
 import WalletModal from "./WalletModal";
+import ConnectButton from "./ConnectButton";
 
 const colors1 = ['#536485', '#04BEFE'];
 
@@ -23,23 +24,10 @@ const CustomHeader = () => {
             <Flex align="center" gap="3rem">
                 <Search placeholder="Search for Setup" allowClear />
                 <Flex align="center" gap="1.5rem">
-                    <ConfigProvider
-                        theme={{
-                            components: {
-                                Button: {
-                                    colorPrimary: `linear-gradient(135deg, ${colors1.join(', ')})`,
-                                    colorPrimaryHover: `linear-gradient(135deg, ${getHoverColors(colors1).join(', ')})`,
-                                    colorPrimaryActive: `linear-gradient(135deg, ${getActiveColors(colors1).join(', ')})`,
-                                    lineWidth: 0,
-                                },
-                            },
-                        }}
-                    >
-                        <WalletModal />
-                    </ConfigProvider>
+                    
                     <MessageOutlined className="header-icon" />
                     <NotificationOutlined className="header-icon" />
-                    <Avatar icon={<UserOutlined />} />
+                    <ConnectButton />
                 </Flex>
             </Flex>
         </Flex>
